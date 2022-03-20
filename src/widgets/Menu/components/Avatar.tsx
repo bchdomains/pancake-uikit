@@ -8,7 +8,7 @@ interface AvatarProps {
   profile: Profile;
 }
 
-const StyledAvatar = styled.div`
+export const StyledAvatar = styled.div`
   margin-left: 8px;
   position: relative;
 
@@ -42,7 +42,7 @@ const Avatar: React.FC<AvatarProps> = ({ profile }) => {
   if (isExternal) {
     return (
       <StyledAvatar title={username}>
-        <a href={link} aria-label={ariaLabel}>
+        <a target="_blank" href={link} aria-label={ariaLabel}>
           {icon}
         </a>
         {showPip && <Pip />}
