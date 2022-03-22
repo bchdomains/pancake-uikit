@@ -3,15 +3,16 @@ import { useModal } from "../Modal";
 import ConnectModal from "./ConnectModal";
 import AccountModal from "./AccountModal";
 import { Login } from "./types";
+import { Profile } from "../Menu/types";
 
 interface ReturnType {
   onPresentConnectModal: () => void;
   onPresentAccountModal: () => void;
 }
 
-const useWalletModal = (login: Login, logout: () => void, account?: string): ReturnType => {
+const useWalletModal = (login: Login, logout: () => void, account?: string, profile?: Profile): ReturnType => {
   const [onPresentConnectModal] = useModal(<ConnectModal login={login} />);
-  const [onPresentAccountModal] = useModal(<AccountModal account={account || ""} logout={logout} />);
+  const [onPresentAccountModal] = useModal(<AccountModal account={account || ""} profile={profile} logout={logout} />);
   return { onPresentConnectModal, onPresentAccountModal };
 };
 
